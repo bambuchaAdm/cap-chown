@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "cap-chown"
   gem.require_paths = ["lib"]
   gem.version       = Cap::Chown::VERSION
+
+  gem.add_dependency 'capistrano'
 end
