@@ -7,7 +7,7 @@ Capistrano::Configuration.instance(:must_exist).load do
     task :chown do
       old_sudo = sudo
       set :sudo, "sudo"
-      if defined?(:app_user) && defined?(:app_group)
+      if exists?(:app_user) && exists?(:app_group)
         run "#{sudo} chown -R #{app_user}:#{app_group} #{releases_path}"
       else
         run "#{sudo} chown -R --reference=#{deploy_to} #{releases_path}"
